@@ -17,9 +17,9 @@ else
 fi
 
 # Android NDK setup
-NDK_PLATFORM_LEVEL=3
+NDK_PLATFORM_LEVEL=14
 NDK_ABI=arm
-NDK_COMPILER_VERSION=4.6
+NDK_COMPILER_VERSION=4.7
 NDK_SYSROOT=$NDK_BASE/platforms/android-$NDK_PLATFORM_LEVEL/arch-$NDK_ABI
 NDK_UNAME=`uname -s | tr '[A-Z]' '[a-z]'`
 if [ $NDK_ABI = "x86" ]; then
@@ -38,7 +38,7 @@ STRIP=$NDK_TOOLCHAIN_BASE/bin/$HOST-strip
 # i use only a small number of formats - set this to 0 if you want everything.
 # changed 0 to the default, so it'll compile shitloads of codecs normally
 if [[ "x$minimal_featureset" == "x" ]]; then
-minimal_featureset=1
+minimal_featureset=0
 fi
 
 function current_dir {
@@ -51,7 +51,7 @@ EXTERNAL_ROOT=$PROJECT_ROOT
 
 # install root for built files
 DESTDIR=$EXTERNAL_ROOT
-prefix=/data/data/info.guardianproject.ffmpeg/app_opt
+prefix=/data/local
 LOCAL=$DESTDIR$prefix
 
 
