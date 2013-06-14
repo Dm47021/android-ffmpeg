@@ -34,8 +34,8 @@ $DEBUG_FLAG \
 --enable-thumb \
 --cross-prefix=$NDK_TOOLCHAIN_BASE/bin/$NDK_ABI-linux-androideabi- \
 --sysroot="$NDK_SYSROOT" \
---extra-cflags="-I../x264 -mfloat-abi=softfp -mfpu=neon" \
---extra-ldflags="-L../x264" \
+--extra-cflags="-I../mp3lame -I../x264 -mfloat-abi=softfp -mfpu=neon" \
+--extra-ldflags="-L../mp3lame -L../x264" \
 \
 --enable-version3 \
 --enable-gpl \
@@ -65,6 +65,7 @@ $DEBUG_FLAG \
 --disable-ffserver \
 --disable-network \
 \
+--enable-libmp3lame \
 --enable-libx264 \
 --enable-zlib
 
