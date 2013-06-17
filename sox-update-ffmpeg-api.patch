@@ -101,18 +101,6 @@ index 09bfc26..0e0267f 100644
  #endif
    }
 
---- configure.ac    2013-04-27 02:06:09.786473573 -0700
-+++ sox/configure.ac    2013-04-27 01:56:20.423073205 -0700
-@@ -12,7 +12,7 @@
- AM_INIT_AUTOMAKE
-
- dnl create a config.h file (Automake will add -DHAVE_CONFIG_H)
--AM_CONFIG_HEADER(src/soxconfig.h)
-+AC_CONFIG_HEADER(src/soxconfig.h)
-
- dnl Check we have the right srcdir
- AC_CONFIG_SRCDIR(sox.1)
-
 -- 
 1.7.11.7
 
