@@ -9,7 +9,8 @@ pushd freetype2
 ./configure \
     CC="$CC" \
     LD="$LD" \
-    CFLAGS="-std=gnu99 -mcpu=cortex-a8 -marm -mfloat-abi=softfp -mfpu=neon" \
+    CFLAGS="-std=gnu99 -march=armv7-a -mcpu=cortex-a8 -marm -mfloat-abi=softfp -mfpu=neon" \
+    LDFLAGS="-Wl,--fix-cortex-a8" \
     --host=$HOST \
     --with-sysroot="$NDK_SYSROOT" \
     --enable-static \

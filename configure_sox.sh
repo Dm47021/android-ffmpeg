@@ -12,8 +12,8 @@ patch -N -p1 --reject-file=- < ../sox-update-ffmpeg-api.patch
 autoreconf --install --force --verbose
 
 ./configure \
-        CFLAGS="-I$LOCAL/include -I$DESTDIR/mp3lame" \
-        LDFLAGS="-L$LOCAL/lib -L$DESTDIR/mp3lame -L$DESTDIR/x264" \
+        CFLAGS="-I$LOCAL/include -I$DESTDIR/mp3lame -march=armv7-a -mcpu=cortex-a8 -mfloat-abi=softfp -mfpu=neon" \
+        LDFLAGS="-L$LOCAL/lib -L$DESTDIR/mp3lame -L$DESTDIR/x264 -Wl,--fix-cortex-a8" \
         LIBS="-lavformat -lavcodec -lavutil -lz -lx264" \
         CC="$CC" \
         LD="$LD" \

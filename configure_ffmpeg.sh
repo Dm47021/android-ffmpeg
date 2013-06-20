@@ -12,6 +12,7 @@ fi
 # the files being patched have changed, in which cause a partial application
 # could happen unnoticed.
 #patch -N -p1 --reject-file=- < redact-plugins.patch
+patch -N -p1 --reject-file=- < arm-asm-fix.patch
 #patch -d ffmpeg -N -p1 --reject-file=- < \
 #    ARM_generate_position_independent_code_to_access_data_symbols.patch
 #patch -d ffmpeg -N -p1 --reject-file=- < \
@@ -34,8 +35,8 @@ $DEBUG_FLAG \
 --enable-thumb \
 --cross-prefix=$NDK_TOOLCHAIN_BASE/bin/$NDK_ABI-linux-androideabi- \
 --sysroot="$NDK_SYSROOT" \
---extra-cflags="-I../mp3lame -I../x264 -mfloat-abi=softfp -mfpu=neon" \
---extra-ldflags="-L../mp3lame -L../x264" \
+--extra-cflags="-I../mp3lame -I../x264 -march=armv7-a -mfloat-abi=softfp -mfpu=neon" \
+--extra-ldflags="-L../mp3lame -L../x264 -Wl,--fix-cortex-a8" \
 \
 --enable-version3 \
 --enable-gpl \
